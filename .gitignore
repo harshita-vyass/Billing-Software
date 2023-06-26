@@ -11,3 +11,6 @@ build/
 .classpath
 .project
 .settings/
+
+.DS_Store
+.factorypath
