@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		https://www.springframework.org/schema/context/spring-context.xsd">
+
+		<context:component-scan base-package="com.bill"/>
+
+		<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+    <property name="prefix" value="/WEB-INF/views/"/>
+    <property name="suffix" value=".jsp"/>
+</bean>
+
+<bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+<property name="url" value="jdbc:mysql://localhost:3306/billing?autoReconnect=true&amp;useSSL=false"></property>
+  <!-- Here test is the name of the database -->
+
+ <property name="username" value="username"></property>
+<property name="password" value="password"></property>   
+</bean>
+
+<bean id="jt" class="org.springframework.jdbc.core.JdbcTemplate">
+<property name="dataSource" ref="ds"></property>
+</bean>
+
+<bean id="ProductDao" class="com.bill.mvc.dao.ProductDao">
+<property name="template" ref="jt"></property>
+</bean>
+
+ <bean id="CategoryDao" class="com.bill.mvc.dao.CategoryDao">
+<property name="template" ref="jt"></property>
+</bean>
+
+<bean id="BillingServiceImpl" class="com.bill.mvc.service.BillingServiceImpl">
+</bean>
+
+ <bean id="BillDao" class="com.bill.mvc.dao.BillDao">
+<property name="template" ref="jt"></property>
+</bean>
+
+<bean id="BillItemsDao" class="com.bill.mvc.dao.BillItemsDao">
+<property name="template" ref="jt"></property>
+</bean>
+
+</beans>
