@@ -1,57 +1,13 @@
-# Miscellaneous
-*.java.hsp
-*.sonarj
-*.sw*
-.DS_Store
-build.sh
-integration-repo
-ivy-cache
-argfile*
-activemq-data/
-classes/
+# Maven build directory
+target/
 
-# Log files
-jxl.log
-jmx.log
-derby.log
+# Gradle build directory
+build/
 
-# Gradle artifacts
-.gradle
-.gradletasknamecache
-/build
-buildSrc/build
-/spring-*/build
-/framework-bom/build
-/framework-docs/build
-/integration-tests/build
-/src/asciidoc/build
-spring-test/test-output/
+# IntelliJ IDEA IDE
+.idea/
 
-# Maven artifacts
-pom.xml
-/target/
-
-# Eclipse artifacts, including WTP generated manifests
-bin
+# Eclipse IDE
 .classpath
 .project
-.settings
-.springBeans
-spring-*/src/main/java/META-INF/MANIFEST.MF
-
-# IDEA artifacts and output dirs
-*.iml
-*.ipr
-*.iws
-.idea
-out
-test-output
-atlassian-ide-plugin.xml
-
-# VS Code
-.vscode/
-
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+.settings/
